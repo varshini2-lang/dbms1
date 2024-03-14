@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Library</title>
+
+    <style>
+        body {
+            background-image: url("/static/play.png");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            position: relative;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(13, 13, 13, 0.5);
+            /* Adjust the opacity as needed */
+            z-index: -1;
+        }
+
+        h1 {
+            color: #fff;
+            /* Text color */
+            margin-top: 200px;
+            font-weight: bolder;
+            position: relative;
+            /* Ensure stacking context for z-index to work */
+            z-index: 2;
+        }
+
+        a {
+            display: inline-block;
+            margin: 50px;
+            padding: 15px 30px;
+            text-decoration: none;
+            color: #ffffff;
+            background-color: #b3006b;
+            font-weight: bolder;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            position: relative;
+            /* Ensure stacking context for z-index to work */
+            z-index: 2;
+        }
+
+        a:hover {
+            background-color: #4e00b3;
+        }
+
+        .a1 {
+            margin-bottom: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Welcome to the User Dashboard</h1>
+        <a href="{{ url_for('view_playlists') }}">View Playlist</a>
+        <a href="{{ url_for('viewsongs') }}">View Songs</a>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Library Management System</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url("/static/big4.webp");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 40px;
+            background-color: blanchedalmond;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .container:hover {
+            transform: translateY(-5px);
+        }
+
+        h1 {
+            font-size: 36px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .buttons {
+            text-align: center;
+        }
+
+        a {
+            display: inline-block;
+            font-size: 18px;
+            margin: 10px;
+            padding: 15px 30px;
+            margin-bottom: 20px;
+            text-decoration: none;
+            color: #fff;
+            font-weight: bolder;
+            background-color: #007bff;
+            border-radius: 5px;
+            width: 200px;
+            transition: background-color 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #0056b3;
+        }
+
+        .footer {
+            margin-top: 40px;
+            font-size: 14px;
+            color: #0a0a0a;
+            text-align: center;
+        }
+    </style>
+
+    <script>
+        // Define the showPopup function
+        function showPopup(message) {
+            if (message) {
+                alert(message);
+            }
+        }
+
+        // Trigger the pop-up message when the page loads
+        document.addEventListener('DOMContentLoaded', function () {
+            showPopup("{{ get_flashed_messages()[0] if get_flashed_messages() else '' }}");
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Welcome to Music Library Management System</h1>
+    </div>
+    <div class="buttons">
+        <a href="{{ url_for('addsong') }}">Add Track</a><br>
+        <a href="{{ url_for('delete') }}">Delete Track</a><br>
+        <a href="{{ url_for('viewsongs') }}">View Tracks</a><br>
+    </div>
+    <div class="footer">
+        &copy; 2024 Music Library Management System. All rights reserved.
+    </div>
+</body>
+
+</html>

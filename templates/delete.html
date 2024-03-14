@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Song Record</title>
+</head>
+
+<body style="background-color: #010103; color: white;">
+
+    <h1
+        style="text-align: center; margin-top: 50px; padding-bottom: 50px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
+        Delete Song Record</h1>
+
+    <form method="POST" style="text-align: center; margin-top: 20px;">
+        <label for="title" style="font-size: 20px; padding-bottom: 40px;">Song Title:</label>
+        <input type="text" id="title" name="title" required style="width: 300px; height: 30px; margin-bottom: 20px;">
+
+        <br>
+
+        <button type="submit"
+            style="background-color: #010103; color: white; font-size: 14px; padding: 8px 12px;">Submit</button>
+    </form>
+
+    <br>
+
+    <div style="text-align: center;">
+        <a href="{{ url_for('home') }}" style="color: white; font-size: 14px;">Home</a>
+    </div>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <div style="text-align: center; margin-top: 20px;">
+        {% for message in messages %}
+        <p>{{ message }}</p>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+
+</body>
+
+</html>
