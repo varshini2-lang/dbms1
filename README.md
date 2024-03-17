@@ -5,8 +5,6 @@ This project is a Music Library Management System implemented using Flask, a Pyt
 
 **Features**
 User Authentication: Users can register, login, and logout securely. Authentication is implemented using Flask-Login.
-![Log in](https://github.com/varshini2-lang/dbms1/assets/145186068/1935ed9f-7ab4-4b42-bdb9-ae863fe7c9a9)
-
 
 CRUD Operations: Users can perform CRD (Create, Read, Delete) operations on music tracks, artists, albums, and genres.
 
@@ -51,6 +49,11 @@ db_config = {
 
 python app.py
 Access the application in your web browser at http://localhost:5000.
+
+## Images
+**Login page** :
+
+![loginpage](https://github.com/varshini2-lang/dbms1/assets/145186068/eeae978c-67b9-4c0e-8c70-a361f4a1b158)
 
 **Usage**
 
