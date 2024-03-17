@@ -31,13 +31,14 @@ git clone https://github.com/varshini2-lang/dbms1
 **Install dependencies:**
 
 pip install -r requirements.txt
-Set up your MySQL database. You can find the database schema in the database_schema.sql file.
+
+Set up your MySQL database. 
 
 Configure your database connection in app.py:
 
 
 db_config = {
-    'host': 'localhost',
+    'host': 'localhost', 
     'user': 'your_username',
     'password': 'your_password',
     'database': 'your_database_name'
