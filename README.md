@@ -6,7 +6,7 @@ This project is a Music Library Management System implemented using Flask, a Pyt
 **Features**
 User Authentication: Users can register, login, and logout securely. Authentication is implemented using Flask-Login.
 
-CRUD Operations: Users can perform CRD (Create, Read, Delete) operations on music tracks, artists, albums, and genres.
+CRUD Operations: Users can perform CRUD (Create, Read,Update, Delete) operations on music tracks, artists, albums, and genres.
 
 Search Functionality: Users can search for music tracks by title, artist, album, or genre.
 
