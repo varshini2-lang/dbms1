@@ -66,7 +66,8 @@ Access the application in your web browser at http://localhost:5000.
 ![delete](https://github.com/varshini2-lang/dbms1/assets/145186068/4e0c6885-650f-4e8e-be2e-566e0fc641f9)
 
 **View Songs Page**:
-![viewsongs](https://github.com/varshini2-lang/dbms1/assets/145186068/c9fdbf1c-0980-4689-88e1-657df1a2c876)
+![viewsongs](https://github.com/varshini2-lang/dbms1/assets/145186068/22780ea5-cdcb-41ce-9203-cca23ff58b80)
+
 
 **User Dashboard:**
 ![userdashboard](https://github.com/varshini2-lang/dbms1/assets/145186068/18a0e4c1-32fd-4ab6-bf39-7f208d1085e4)
