@@ -59,6 +59,6 @@ Users can also explore playlists based on different genres.
 
 **Contributors**
 
-Varshini (@varshini2-lang)
-Prashita 
+-Varshini (@varshini2-lang)
+*Prashita 
  
