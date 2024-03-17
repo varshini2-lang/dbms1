@@ -55,6 +55,24 @@ Access the application in your web browser at http://localhost:5000.
 
 ![loginpage](https://github.com/varshini2-lang/dbms1/assets/145186068/eeae978c-67b9-4c0e-8c70-a361f4a1b158)
 
+**Home Page**:
+![home](https://github.com/varshini2-lang/dbms1/assets/145186068/0772fbba-273f-46e2-917b-1ddcb2000c0b) 
+
+**Add Song Page**:
+![addsongs](https://github.com/varshini2-lang/dbms1/assets/145186068/63fe40e4-1d82-4498-9b88-bcf4f571f4b4)
+
+**Delete Page**:
+![delete](https://github.com/varshini2-lang/dbms1/assets/145186068/4e0c6885-650f-4e8e-be2e-566e0fc641f9)
+
+**View Songs Page**:
+![viewsongs](https://github.com/varshini2-lang/dbms1/assets/145186068/c9fdbf1c-0980-4689-88e1-657df1a2c876)
+
+**User Dashboard:**
+![userdashboard](https://github.com/varshini2-lang/dbms1/assets/145186068/18a0e4c1-32fd-4ab6-bf39-7f208d1085e4)
+
+**View playlist**:
+![viewplaylist](https://github.com/varshini2-lang/dbms1/assets/145186068/1ddd362f-1d07-46d3-b64b-a4d6b9c84e6c)
+
 **Usage**
 
 Upon accessing the application, users will be prompted to register or login.
