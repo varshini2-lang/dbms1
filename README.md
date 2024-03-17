@@ -1,9 +1,9 @@
-#Music Library Management System
+# Music Library Management System
 
 
 This project is a Music Library Management System implemented using Flask, a Python web framework. It allows users to manage music tracks, artists, albums, genres, and playlists.
 
-*Features*
+**Features**
 User Authentication: Users can register, login, and logout securely. Authentication is implemented using Flask-Login.
 
 
@@ -15,7 +15,7 @@ Playlist Management: Users can view playlists and explore tracks based on genres
 
 Error Handling: Comprehensive error handling to provide feedback to users in case of any issues.
 
-*Technologies Used:*
+**Technologies Used:**
 
 Flask: Web framework used for backend development.
 MySQL: Database management system for storing music-related data.
@@ -24,12 +24,12 @@ HTML/CSS: Frontend templates and styling.
 Python: Programming language used for backend logic.
 
 
-*Setup*
+**Setup**
 
 Clone the repository:
 git clone https://github.com/varshini2-lang/dbms1
 
-*Install dependencies:*
+**Install dependencies:**
 
 pip install -r requirements.txt
 Set up your MySQL database. You can find the database schema in the database_schema.sql file.
@@ -45,19 +45,19 @@ db_config = {
 }
 
 
-*Run the application:*
+**Run the application:**
 
 
 python app.py
 Access the application in your web browser at http://localhost:5000.
 
-*Usage*
+**Usage**
 
 Upon accessing the application, users will be prompted to register or login.
 After logging in, users can add, view, update, or delete music tracks, artists, albums, and genres.
 Users can also explore playlists based on different genres.
 
-*Contributors*
+**Contributors**
 
 Varshini (@varshini2-lang)
 Prashita 
