@@ -4,6 +4,7 @@
 This project is a Music Library Management System implemented using Flask, a Python web framework. It allows users to manage music tracks, artists, albums, genres, and playlists.
 
 **Features**
+
 User Authentication: Users can register, login, and logout securely. Authentication is implemented using Flask-Login.
 
 CRUD Operations: Users can perform CRUD (Create, Read,Update, Delete) operations on music tracks, artists, albums, and genres.
@@ -49,6 +50,7 @@ db_config = {
 
 
 python app.py
+
 Access the application in your web browser at http://localhost:5000.
 
 ## Images
