@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Song</title>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #0e0e0e;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h1 {
+            color: #faf7f7;
+            margin-top: 50px;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 40px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        button[type="submit"] {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Update Song</h1>
+    <form action="{{ url_for('updatesong', title=song_details[0]) }}" method="POST">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" value="{{ song_details[0] }}" readonly><br>
+        <label for="album">Album:</label>
+        <input type="text" id="album" name="album" value="{{ song_details[1] }}"><br>
+        <label for="artist">Artist:</label>
+        <input type="text" id="artist" name="artist" value="{{ song_details[2] }}"><br>
+        <label for="genre">Genre:</label>
+        <input type="text" id="genre" name="genre" value="{{ song_details[3] }}"><br>
+        <label for="rlsyr">Release Year:</label>
+        <input type="text" id="rlsyr" name="rlsyr" value="{{ song_details[4] }}"><br>
+        <button type="submit">Update Song</button>
+    </form>
+</body>
+
+</html>

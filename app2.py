@@ -90,16 +90,87 @@ def home():
 def index():
     return render_template('index.html')
 
+
+@app.route('/updatesong/<string:title>', methods=['GET', 'POST'])
+def updatesong(title):
+    if request.method == 'POST':
+        # Get updated song details from the form
+        updated_title = request.form['title']
+        updated_album = request.form['album']
+        updated_artist = request.form['artist']
+        updated_genre = request.form['genre']
+        updated_rlsyr = request.form['rlsyr']
+
+        try:
+            # Check if the album exists, if not, insert it
+            cur.execute('''
+                INSERT INTO album (album_name) 
+                SELECT %s
+                WHERE NOT EXISTS (SELECT 1 FROM album WHERE album_name = %s)
+            ''', (updated_album, updated_album))
+
+            # Check if the artist exists, if not, insert it
+            cur.execute('''
+                INSERT INTO artist (artist_name) 
+                SELECT %s
+                WHERE NOT EXISTS (SELECT 1 FROM artist WHERE artist_name = %s)
+            ''', (updated_artist, updated_artist))
+
+            # Update the song details in the database based on the title
+            cur.execute('''
+                UPDATE track t
+                JOIN album a ON t.album_id = a.id
+                JOIN artist ar ON t.artist_id = ar.id
+                JOIN genre g ON t.genre_id = g.id
+                SET 
+                    t.album_id = (SELECT id FROM album WHERE album_name = %s), 
+                    t.artist_id = (SELECT id FROM artist WHERE artist_name = %s), 
+                    t.genre_id = (SELECT id FROM genre WHERE genre_name = %s), 
+                    t.rlsyr = %s
+                WHERE 
+                    t.title = %s
+            ''', (updated_album, updated_artist, updated_genre, updated_rlsyr, title))
+
+            conn.commit()
+            flash('Song updated successfully', 'success')
+            # Redirect to the view songs page after updating the song
+            return redirect(url_for('viewsongs'))
+        except Exception as e:
+            flash(f"Error: {str(e)}", 'error')
+
+    # Retrieve the existing song details from the database
+    try:
+        cur.execute('''
+            SELECT t.title, a.album_name, ar.artist_name, g.genre_name, t.rlsyr 
+            FROM track t
+            JOIN album a ON t.album_id = a.id
+            JOIN artist ar ON t.artist_id = ar.id
+            JOIN genre g ON t.genre_id = g.id
+            WHERE t.title = %s
+        ''', (title,))
+        song_details = cur.fetchone()
+        return render_template('updatesong.html', song_details=song_details)
+    except Exception as e:
+        flash(f"Error: {str(e)}", 'error')
+        return redirect(url_for('viewsongs'))
+
+        
 @app.route('/delete', methods=['GET', 'POST'])
 def delete():
     if request.method == 'POST':
         title = request.form['title']
 
         try:
-            cur.execute("DELETE FROM track, album, artist USING track JOIN album JOIN artist ON track.artist_id=artist.id AND track.album_id=album.id WHERE track.title = %s;", (title,))
+            cur.execute("""
+                DELETE track, album, artist
+                FROM track
+                LEFT JOIN album ON track.album_id = album.id
+                LEFT JOIN artist ON track.artist_id = artist.id
+                WHERE track.title = %s
+            """, (title,))
             conn.commit()
+            
             if cur.rowcount > 0:
-                conn.commit()
                 flash('Song Record Deleted Successfully', 'success')
             else:
                 flash('Song with specified title not found', 'error')
@@ -109,6 +180,7 @@ def delete():
             flash(f'Error: {str(e)}', 'error')
 
     return render_template('delete.html')
+
 
 
 @app.route('/addsong', methods=['GET', 'POST'])
@@ -149,13 +221,20 @@ def addsong():
 
 @app.route('/viewsongs')
 def viewsongs():
+    search_query = request.args.get('query', '')  # Get the search query from the request parameters
     try:
-        cur.execute("SELECT track.title, artist.artist_name, album.album_name, genre.genre_name, track.rlsyr FROM track JOIN album JOIN artist JOIN genre ON track.artist_id=artist.id AND track.album_id=album.id AND track.genre_id=genre.id ORDER BY track.title;")
+        if search_query:
+            # If search query is provided, filter songs based on the query
+            cur.execute("SELECT track.title, artist.artist_name, album.album_name, genre.genre_name, track.rlsyr FROM track JOIN album JOIN artist JOIN genre ON track.artist_id=artist.id AND track.album_id=album.id AND track.genre_id=genre.id WHERE track.title LIKE %s;", ('%' + search_query + '%',))
+        else:
+            # If no search query is provided, retrieve all songs
+            cur.execute("SELECT track.title, artist.artist_name, album.album_name, genre.genre_name, track.rlsyr FROM track JOIN album JOIN artist JOIN genre ON track.artist_id=artist.id AND track.album_id=album.id AND track.genre_id=genre.id ORDER BY track.title;")
+        
         rows = cur.fetchall()
-        return render_template('viewsongs.html', songs=rows)
+        return render_template('viewsongs.html', songs=rows, search_query=search_query)
     except Exception as e:
         flash(f"Error: {str(e)}", 'error')
-        return render_template('viewsongs.html', songs=[])
+        return render_template('viewsongs.html', songs=[], search_query=search_query)
 
 def get_playlists():
     # You can modify this function to retrieve the playlists from your database
