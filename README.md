@@ -5,11 +5,18 @@ This project is a Music Library Management System implemented using Flask, a Pyt
 
 Features
 User Authentication: Users can register, login, and logout securely. Authentication is implemented using Flask-Login.
+
+
 CRUD Operations: Users can perform CRD (Create, Read, Delete) operations on music tracks, artists, albums, and genres.
+
 Search Functionality: Users can search for music tracks by title, artist, album, or genre.
+
 Playlist Management: Users can view playlists and explore tracks based on genres like EDM, Indie, Pop, and Rap.
+
 Error Handling: Comprehensive error handling to provide feedback to users in case of any issues.
-Technologies Used
+
+Technologies Used:
+
 Flask: Web framework used for backend development.
 MySQL: Database management system for storing music-related data.
 Flask-Login: Extension for handling user authentication.
@@ -18,8 +25,10 @@ Python: Programming language used for backend logic.
 
 
 Setup
+
 Clone the repository:
 git clone https://github.com/varshini2-lang/dbms1
+
 Install dependencies:
 
 pip install -r requirements.txt
@@ -34,6 +43,8 @@ db_config = {
     'password': 'your_password',
     'database': 'your_database_name'
 }
+
+
 Run the application:
 
 
